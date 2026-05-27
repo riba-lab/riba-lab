@@ -1,99 +1,133 @@
 # RIBA Lab — Claude notes
 
-Проект: интернет-магазин варенья RIBA Lab (Израиль).
+**Проект:** интернет-магазин варенья ручной работы из Израиля.  
+**Дизайн-эталон:** `~/Desktop/riba-lab-combined.html` — финальный HTML-макет, на него ориентируемся при переносе.
+
+---
 
 ## Стек
 
-- **Next.js 15** — App Router, RSC
-- **TypeScript** — strict mode
-- **Tailwind CSS v4** — CSS-first конфигурация (`@import "tailwindcss"` + `tailwind.config.ts`)
-- **next-intl v4** — локализация; `he` (иврит, RTL) по умолчанию, `ru` вторичный
-- **shadcn/ui** — компонентная библиотека (нужно установить)
-- **Google Fonts**: Marcellus (заголовки, serif) + DM Sans (текст, sans) + Noto Sans Hebrew (иврит RTL)
-- **В будущем**: Supabase (БД + auth), Vercel (деплой)
+| Слой | Технология |
+|---|---|
+| Фреймворк | Next.js 15, App Router, React Server Components |
+| Язык | TypeScript (strict) |
+| Стили | Tailwind CSS v4 (`@tailwindcss/postcss`, CSS-first via `@theme`) |
+| Локализация | next-intl v4 — `he` (RTL, иврит, **default**) + `ru` |
+| Компоненты | shadcn/ui (установлен, `components.json` в корне) |
+| Иконки | lucide-react |
+| БД/Auth | Supabase (запланировано) |
+| Деплой | Vercel (запланировано) |
+
+---
 
 ## Брендгайд — Berry Sorbet
 
-### Цвета (CSS-переменные и Tailwind-токены)
+### Основная палитра
 
-| Токен       | Hex       | Применение                          |
-|-------------|-----------|-------------------------------------|
-| `cream`     | `#FDF7F2` | фон страницы                        |
-| `plum`      | `#2D1B2E` | основной текст, заголовки           |
-| `berry`     | `#C9305A` | акцент, CTA, ссылки                 |
-| `lavender`  | `#A88DBF` | вторичный акцент                    |
-| `blush`     | `#E8B7C5` | нежные фоны, hover                  |
-| `gold`      | `#C9A045` | premium-элементы, badges            |
-| `leaf`      | `#7A9B7E` | свежесть, эко-метки                 |
+| Tailwind-токен | Hex | Применение |
+|---|---|---|
+| `cream` | `#FDF7F2` | фон страницы |
+| `plum` | `#2D1B2E` | основной текст, заголовки |
+| `berry` | `#C9305A` | акцент, CTA-кнопки, ссылки |
+| `lavender` | `#A88DBF` | вторичный акцент |
+| `blush` | `#E8B7C5` | нежные фоны, hover-состояния |
+| `gold` | `#C9A045` | premium-элементы, badges |
+| `leaf` | `#7A9B7E` | свежесть, эко-метки |
 
-Расширенная палитра из дизайн-эталона (`riba-lab-combined.html`):
-- `--cream-2: #F7EEE5`, `--cream-3: #EFE3D6`
-- `--plum-2: #4A2E4D`, `--plum-3: #6B4870`
-- `--berry-2: #E04D77`, `--berry-light: #F5A8BD`, `--berry-pale: #FCE4EC`
-- `--lavender-2: #C2ACD6`, `--lavender-pale: #F2EAF7`
-- `--gold-light: #E5C76B`
-- `--leaf-dark: #4A6B4F`, `--leaf-pale: #E8F0E5`
-- `--muted: #8B7484`, `--border: rgba(45,27,46,0.10)`
+### Расширенная палитра (из HTML-эталона, есть в `@theme`)
 
-### Типографика
+```
+cream-2 #F7EEE5   cream-3 #EFE3D6
+plum-2  #4A2E4D   plum-3  #6B4870
+berry-2 #E04D77   berry-light #F5A8BD   berry-pale #FCE4EC
+lavender-2 #C2ACD6   lavender-pale #F2EAF7
+gold-light #E5C76B
+leaf-dark #4A6B4F   leaf-pale #E8F0E5
+muted #8B7484
+```
 
-- `font-serif` → Marcellus (заголовки h1/h2/h3)
-- `font-sans` → DM Sans (body, UI)
-- `var(--font-hebrew)` → Noto Sans Hebrew (RTL, автоматически для `dir="rtl"`)
+### Шрифты
+
+| Переменная | Шрифт | Использование |
+|---|---|---|
+| `font-serif` / `--font-marcellus` | Marcellus | Заголовки h1–h3 |
+| `font-sans` / `--font-dm-sans` | DM Sans | Тело текста, UI |
+| `--font-hebrew` | Noto Sans Hebrew | RTL-текст (иврит, автоматически через `body[dir="rtl"]`) |
+
+---
+
+## Локализация
+
+- Маршруты: `/he/*` (RTL, иврит, по умолчанию) и `/ru/*` (LTR, русский)
+- Middleware автоматически редиректит `/` → `/he`
+- `<html lang="he" dir="rtl">` / `<html lang="ru" dir="ltr">` — устанавливается в root layout через `getLocale()`
+- Переводы: `messages/he.json`, `messages/ru.json`
+
+---
+
+## Конвенции кода
+
+- **Server Components** везде где нет интерактивности (`"use client"` только по необходимости)
+- **RTL-aware Tailwind utilities:** использовать логические свойства:
+  - `ms-*` / `me-*` вместо `ml-*` / `mr-*` (margin-inline-start/end)
+  - `ps-*` / `pe-*` вместо `pl-*` / `pr-*` (padding-inline-start/end)
+  - `start-*` / `end-*` вместо `left-*` / `right-*` (для `position`)
+  - `text-start` / `text-end` вместо `text-left` / `text-right`
+- Кастомные токены через `cn()` из `lib/utils.ts` (clsx + tailwind-merge)
+- Gettext-переводы через `getTranslations()` (server) или `useTranslations()` (client)
+
+---
 
 ## Структура файлов
 
 ```
 app/
   [locale]/
-    layout.tsx     # устанавливает dir/lang, NextIntlClientProvider
+    layout.tsx     # NextIntlClientProvider + getMessages()
     page.tsx       # главная страница (локализованная)
-  globals.css      # @import "tailwindcss", CSS-переменные
-  layout.tsx       # root layout, шрифты, metadata
-  page.tsx         # редирект-заглушка (/ → /he через middleware)
+  globals.css      # @theme с Berry Sorbet токенами + shadcn CSS vars
+  layout.tsx       # root layout: шрифты, getLocale() → lang/dir на <html>
+  page.tsx         # fallback redirect → /he
+components/
+  ui/              # shadcn компоненты (добавляются через npx shadcn add ...)
 i18n/
+  routing.ts       # defineRouting (locales, defaultLocale)
   request.ts       # getRequestConfig — загружает messages по локали
+lib/
+  utils.ts         # cn() для shadcn
 messages/
-  he.json          # переводы иврит
+  he.json          # переводы иврит (nav, home, lang, site)
   ru.json          # переводы русский
-middleware.ts      # next-intl locale routing (НУЖНО СОЗДАТЬ)
-components/        # shadcn/ui + кастомные компоненты (НУЖНО СОЗДАТЬ)
-tailwind.config.ts # цвета и шрифты Berry Sorbet
+middleware.ts      # next-intl locale routing
+components.json    # shadcn конфиг
+global.d.ts        # declare module '*.css' для TS
 ```
 
-## Дизайн-эталон
+---
 
-Файл: `/Users/a.s./Desktop/riba-lab-combined.html`
+## Секции дизайн-эталона (riba-lab-combined.html)
 
-Ключевые секции из HTML-эталона:
-1. **Lang modal** — модальный попап выбора языка при первом заходе
-2. **Nav** — фиксированный navbar: логотип + выпадающее меню + ссылки + иконки (поиск, корзина, профиль)
-3. **Hero** — главный баннер с ambient blobs + floating particles + CTA
-4. **Products grid** — карточки товаров (варенье, джемы)
-5. **About / Story** — секция "о бренде"
+1. **Lang modal** — попап выбора языка при первом заходе
+2. **Nav** — фиксированный navbar: логотип (с дропдауном) + nav-links + иконки (поиск, корзина, профиль)
+3. **Hero** — ambient blobs + emoji-частицы `floatUp` + CTA
+4. **Products grid** — карточки товаров
+5. **About / Story** — секция о бренде
 6. **Footer**
 
-Ambient background: анимированные `amb-blob` (filter: blur 80px) + emoji-частицы `floatUp` — это signature визуал бренда.
+Signature визуал: анимированные `.amb-blob` (`filter: blur 80px`) + floating emoji-частицы.
 
-## Локализация
+---
 
-- Маршруты: `/he/*` (RTL, иврит, default), `/ru/*` (LTR, русский)
-- `middleware.ts` должен перенаправлять `/` → `/he`
-- `<html lang="he" dir="rtl">` / `<html lang="ru" dir="ltr">` — устанавливается в `[locale]/layout.tsx`
-- RTL: `dir="rtl"` на `<html>`, Noto Sans Hebrew автоматически через CSS `body[dir="rtl"]`
+## Статус
 
-## Статус проекта
-
-- [x] Next.js 15 + TypeScript инициализирован
-- [x] Tailwind v4 настроен — Berry Sorbet токены в `@theme` в `globals.css`
-- [x] Google Fonts (Marcellus, DM Sans, Noto Sans Hebrew)
-- [x] next-intl v4 — `middleware.ts` + `i18n/routing.ts` + `i18n/request.ts`
-- [x] `app/[locale]/` routing: `/he` (RTL) и `/ru` (LTR), статически сгенерированы
-- [x] `lang`/`dir` на `<html>` динамически через `getLocale()` в root layout
-- [x] `messages/he.json` и `messages/ru.json` наполнены базовыми ключами
-- [x] shadcn/ui scaffold: `lib/utils.ts`, `components.json`, зависимости установлены
-- [x] ESLint исправлен (Next.js flat config)
+- [x] Next.js 15 + TypeScript, ESLint (flat config)
+- [x] Tailwind v4 — Berry Sorbet токены в `@theme`, shadcn CSS vars в `@layer base`
+- [x] Google Fonts: Marcellus, DM Sans, Noto Sans Hebrew
+- [x] next-intl v4: `middleware.ts`, `i18n/routing.ts`, `i18n/request.ts`
+- [x] `lang`/`dir` динамически через `getLocale()` в root layout
+- [x] `messages/he.json` + `messages/ru.json` — базовые ключи
+- [x] shadcn/ui scaffold: `lib/utils.ts`, `components.json`, зависимости
 - [x] Билд чистый ✓
-- [ ] Компоненты: Navbar, Hero, ProductCard, Footer
+- [ ] Компоненты: Navbar, Lang modal, Hero, ProductCard, Footer
 - [ ] Перенос дизайна из `riba-lab-combined.html`
 - [ ] Supabase интеграция
