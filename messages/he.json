@@ -1,0 +1,26 @@
+{
+  "site": {
+    "name": "RIBA Lab",
+    "tagline": "חנות ריבה ומרמלדות"
+  },
+  "nav": {
+    "shop": "חנות",
+    "about": "אודות",
+    "contact": "צור קשר",
+    "cart": "עגלה",
+    "search": "חיפוש"
+  },
+  "home": {
+    "headline": "RIBA Lab",
+    "subline": "ריבות ומרמלדות בעבודת יד מישראל",
+    "cta_shop": "לחנות",
+    "cta_about": "הסיפור שלנו"
+  },
+  "lang": {
+    "select_title": "בחרי שפה",
+    "he": "עברית",
+    "he_sub": "ישראל 🇮🇱",
+    "ru": "Русский",
+    "ru_sub": "Россия 🇷🇺"
+  }
+}

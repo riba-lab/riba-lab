@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Berry Sorbet design tokens (Tailwind v4 @theme) ─────────── */
+@theme {
+  /* Brand palette */
+  --color-cream:          #FDF7F2;
+  --color-cream-2:        #F7EEE5;
+  --color-cream-3:        #EFE3D6;
+  --color-plum:           #2D1B2E;
+  --color-plum-2:         #4A2E4D;
+  --color-plum-3:         #6B4870;
+  --color-berry:          #C9305A;
+  --color-berry-2:        #E04D77;
+  --color-berry-light:    #F5A8BD;
+  --color-berry-pale:     #FCE4EC;
+  --color-lavender:       #A88DBF;
+  --color-lavender-2:     #C2ACD6;
+  --color-lavender-pale:  #F2EAF7;
+  --color-blush:          #E8B7C5;
+  --color-blush-pale:     #FBE9EE;
+  --color-gold:           #C9A045;
+  --color-gold-light:     #E5C76B;
+  --color-leaf:           #7A9B7E;
+  --color-leaf-dark:      #4A6B4F;
+  --color-leaf-pale:      #E8F0E5;
+  --color-muted:          #8B7484;
+
+  /* Typography — references Next.js font CSS vars set on <html> */
+  --font-sans:   var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif:  var(--font-marcellus), Georgia, serif;
 }
 
+/* ── shadcn/ui CSS variables (mapped to Berry Sorbet) ─────────── */
+/* @theme inline exposes these as Tailwind utilities: bg-background, text-primary, etc. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background:           var(--background);
+  --color-foreground:           var(--foreground);
+  --color-card:                 var(--card);
+  --color-card-foreground:      var(--card-foreground);
+  --color-popover:              var(--popover);
+  --color-popover-foreground:   var(--popover-foreground);
+  --color-primary:              var(--primary);
+  --color-primary-foreground:   var(--primary-foreground);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-bg:             var(--muted-bg);
+  --color-muted-fg:             var(--muted-fg);
+  --color-accent:               var(--accent);
+  --color-accent-foreground:    var(--accent-foreground);
+  --color-destructive:          var(--destructive);
+  --color-border:               var(--border);
+  --color-input:                var(--input);
+  --color-ring:                 var(--ring);
+
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background:           #FDF7F2;
+    --foreground:           #2D1B2E;
+    --card:                 #ffffff;
+    --card-foreground:      #2D1B2E;
+    --popover:              #ffffff;
+    --popover-foreground:   #2D1B2E;
+    --primary:              #C9305A;
+    --primary-foreground:   #FDF7F2;
+    --secondary:            #F7EEE5;
+    --secondary-foreground: #2D1B2E;
+    --muted-bg:             #F7EEE5;
+    --muted-fg:             #8B7484;
+    --accent:               #E8B7C5;
+    --accent-foreground:    #2D1B2E;
+    --destructive:          #EF4444;
+    --border:               rgba(45, 27, 46, 0.10);
+    --input:                rgba(45, 27, 46, 0.12);
+    --ring:                 #C9305A;
+    --radius:               0.75rem;
   }
 }
 
+/* ── Base resets ──────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body[dir="rtl"] {
+  font-family: var(--font-hebrew), var(--font-sans);
+}
+
+::selection {
+  background: rgba(201, 48, 90, 0.18);
 }

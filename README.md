@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RIBA Lab
 
-## Getting Started
+Интернет-магазин варенья RIBA Lab из Израиля.
 
-First, run the development server:
+## Текущий стек
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- `next-intl` для локализации
+- шрифты Google: Marcellus + DM Sans
+- RTL-поддержка для иврита
+- Планы: Supabase и деплой на Vercel
+
+## Запуск
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Локализация
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Поддерживаются:
 
-## Learn More
+- `he` — иврит, язык по умолчанию
+- `ru` — русский
 
-To learn more about Next.js, take a look at the following resources:
+Файлы переводов находятся в `messages/he.json` и `messages/ru.json`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Структура
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/layout.tsx` — глобальная раскладка и глобальные шрифты
+- `app/page.tsx` — заглушка с выбором языка
+- `app/[locale]/layout.tsx` — провайдер `next-intl`
+- `app/[locale]/page.tsx` — локализованная страница
 
-## Deploy on Vercel
+## Примечания
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Цвета проекта уже заданы в `app/globals.css`.
+- `CLAUDE.md` содержит ориентиры для дальнейшей работы с проектом.
