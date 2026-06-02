@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import Logo from '@/components/Logo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -19,6 +20,7 @@ export default async function LocalePage({ params }: Props) {
       </div>
 
       <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-5xl flex-col items-center justify-center gap-10 rounded-4xl border border-plum/10 bg-white/80 p-10 shadow-[0_40px_120px_rgba(45,27,46,0.10)] backdrop-blur-sm">
+        <Logo />
         <p className="text-xs uppercase tracking-[0.4em] text-plum/60">
           {tSite('tagline')}
         </p>

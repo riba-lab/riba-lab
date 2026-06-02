@@ -22,8 +22,9 @@ const notoSansHebrew = Noto_Sans_Hebrew({
 });
 
 export const metadata: Metadata = {
-  title: 'RIBA Lab',
-  description: 'חנות ריבה מיוחדת מישראל — RIBA Lab',
+  title: 'RIBA Lab — Craft Jam',
+  description: 'Лаборатория крафтового варенья из Израиля',
+  icons: { icon: '/favicon.svg' },
 };
 
 export default async function RootLayout({
