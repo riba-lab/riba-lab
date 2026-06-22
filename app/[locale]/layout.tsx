@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { ReactNode } from 'react';
 import AmbientBackground from '@/components/AmbientBackground';
+import Header from '@/components/Header';
+import LangModal from '@/components/LangModal';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -27,6 +29,8 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <AmbientBackground />
+      <Header />
+      <LangModal />
       {children}
     </NextIntlClientProvider>
   );

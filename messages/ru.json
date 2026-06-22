@@ -4,10 +4,16 @@
     "tagline": "Магазин варенья и джемов"
   },
   "nav": {
+    "home": "Главная",
+    "collections": "Коллекции",
+    "catalog": "Каталог",
+    "israel": "О нашем Израиле",
+    "loyalty": "Лояльность",
+    "account": "Личный кабинет",
+    "cart": "Корзина",
     "shop": "Магазин",
     "about": "О нас",
     "contact": "Контакты",
-    "cart": "Корзина",
     "search": "Поиск"
   },
   "home": {
@@ -21,6 +27,11 @@
     "he": "עברית",
     "he_sub": "Израиль 🇮🇱",
     "ru": "Русский",
-    "ru_sub": "Россия 🇷🇺"
+    "ru_sub": "Варенье ручной работы",
+    "en": "English",
+    "en_sub": "Artisan Jams",
+    "fr": "Français",
+    "fr_sub": "Confiture artisanale",
+    "coming_soon": "Скоро"
   }
 }

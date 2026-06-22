@@ -4,10 +4,16 @@
     "tagline": "חנות ריבה ומרמלדות"
   },
   "nav": {
+    "home": "בית",
+    "collections": "קולקציות",
+    "catalog": "קטלוג",
+    "israel": "על ישראל שלנו",
+    "loyalty": "נאמנות",
+    "account": "חשבון אישי",
+    "cart": "עגלה",
     "shop": "חנות",
     "about": "אודות",
     "contact": "צור קשר",
-    "cart": "עגלה",
     "search": "חיפוש"
   },
   "home": {
@@ -19,8 +25,13 @@
   "lang": {
     "select_title": "בחרי שפה",
     "he": "עברית",
-    "he_sub": "ישראל 🇮🇱",
+    "he_sub": "ריבה מיוחדת",
     "ru": "Русский",
-    "ru_sub": "Россия 🇷🇺"
+    "ru_sub": "Варенье ручной работы",
+    "en": "English",
+    "en_sub": "Artisan Jams",
+    "fr": "Français",
+    "fr_sub": "Confiture artisanale",
+    "coming_soon": "בקרוב"
   }
 }
