@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(grep -n \"canvas\\\\|swarm\\\\|particle\\\\|amb\\\\|holograph\\\\|requestAnim\\\\|floatUp\\\\|<script\" /Users/a.s./Desktop/riba-lab-combined.html | head -60)",
+      "Read(//Users/a.s./Desktop/**)",
+      "Bash(node -e \"const ni = require\\('next-intl/navigation'\\); console.log\\(Object.keys\\(ni\\)\\)\")",
+      "Bash(curl -s \"http://localhost:3002/he\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -sv \"http://localhost:3002/he\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(node -e \"const pkg=require\\('./node_modules/next-intl/package.json'\\); const nav=pkg.exports['./navigation']; console.log\\(JSON.stringify\\(nav,null,2\\)\\)\")",
+      "Bash(rm -rf .next && npm run dev -- --port 3003 2>&1 &)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3003/he)",
+      "Bash(pkill -f \"next dev\" 2>/dev/null; sleep 2; rm -rf .next)",
+      "Bash(NODE_ENV=development node -e ' *)",
+      "Bash(pkill -f \"next dev\" 2>/dev/null; rm /Users/a.s./Projects/riba-lab/i18n/navigation.ts)"
+    ],
+    "additionalDirectories": [
+      "/Users/a.s./Projects/riba-lab/.next",
+      "/Users/a.s./Projects/riba-lab/i18n"
+    ]
+  }
+}
