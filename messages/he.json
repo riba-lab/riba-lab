@@ -1,51 +1,44 @@
 {
-  "site": {
-    "name": "RIBA Lab",
-    "tagline": "חנות ריבה ומרמלדות"
-  },
+  "site": { "name": "RIBA Lab", "tagline": "חנות ריבה ומרמלדות" },
   "nav": {
-    "home": "בית",
-    "collections": "קולקציות",
-    "catalog": "קטלוג",
-    "israel": "על ישראל שלנו",
-    "loyalty": "נאמנות",
-    "account": "חשבון אישי",
-    "cart": "עגלה",
-    "shop": "חנות",
-    "about": "אודות",
-    "contact": "צור קשר",
-    "search": "חיפוש"
+    "home": "בית", "collections": "קולקציות", "catalog": "קטלוג",
+    "israel": "על ישראל שלנו", "loyalty": "נאמנות", "account": "חשבון אישי",
+    "cart": "עגלה", "shop": "חנות", "about": "אודות", "contact": "צור קשר", "search": "חיפוש"
   },
   "home": {
-    "headline": "RIBA Lab",
-    "subline": "ריבות ומרמלדות בעבודת יד מישראל",
-    "cta_shop": "לחנות",
-    "cta_about": "הסיפור שלנו"
+    "headline": "RIBA Lab", "subline": "ריבות ומרמלדות בעבודת יד מישראל",
+    "cta_shop": "לחנות", "cta_about": "הסיפור שלנו"
   },
   "hero": {
     "kicker": "תוצרת ישראל · עבודת יד",
-    "title_1": "אמנות בכל",
-    "title_2": "צנצנת",
+    "title_1": "אמנות בכל", "title_2": "צנצנת",
     "subtitle": "RIBA LAB · מעבדת ריבה",
     "desc": "ריבה בעבודת יד ממהדורות מוגבלות. כל מנה — ניסוי טעם ייחודי שנוצר באהבה בעיקר ממרכיבים ישראליים.",
-    "cta_shop": "לגלות את הקולקציה",
-    "cta_join": "להצטרף",
-    "pill_israel": "תוצרת ישראל",
-    "pill_local": "מרכיבים מקומיים",
-    "pill_limited": "מהדורות מוגבלות",
-    "pill_handmade": "עבודת יד",
+    "cta_shop": "לגלות את הקולקציה", "cta_join": "להצטרף",
+    "pill_israel": "תוצרת ישראל", "pill_local": "מרכיבים מקומיים",
+    "pill_limited": "מהדורות מוגבלות", "pill_handmade": "עבודת יד",
     "jar_tag": "🇮🇱 RIBA LAB"
+  },
+  "sections": {
+    "collections_eye": "קולקציות",
+    "collections_title": "בחרו את הטעם שלכם",
+    "collections_desc": "כל קולקציה — סיפור ייחודי שנוצר במעבדתנו מהמרכיבים הטובים ביותר.",
+    "view": "לצפייה →",
+    "products_eye": "להיטי העונה",
+    "products_title": "מהדורות מוגבלות",
+    "all_collections": "כל הקולקציות"
+  },
+  "products": {
+    "add": "לעגלה", "wishlist": "למועדפים",
+    "sold_out": "אזל", "limited": "מוגבל", "new": "חדש",
+    "available": "במלאי", "of": "מתוך"
   },
   "lang": {
     "select_title": "בחרי שפה",
-    "he": "עברית",
-    "he_sub": "ריבה מיוחדת",
-    "ru": "Русский",
-    "ru_sub": "Варенье ручной работы",
-    "en": "English",
-    "en_sub": "Artisan Jams",
-    "fr": "Français",
-    "fr_sub": "Confiture artisanale",
+    "he": "עברית", "he_sub": "ריבה מיוחדת",
+    "ru": "Русский", "ru_sub": "Варенье ручной работы",
+    "en": "English", "en_sub": "Artisan Jams",
+    "fr": "Français", "fr_sub": "Confiture artisanale",
     "coming_soon": "בקרוב"
   }
 }

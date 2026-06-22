@@ -1,51 +1,44 @@
 {
-  "site": {
-    "name": "RIBA Lab",
-    "tagline": "Магазин варенья и джемов"
-  },
+  "site": { "name": "RIBA Lab", "tagline": "Магазин варенья и джемов" },
   "nav": {
-    "home": "Главная",
-    "collections": "Коллекции",
-    "catalog": "Каталог",
-    "israel": "О нашем Израиле",
-    "loyalty": "Лояльность",
-    "account": "Личный кабинет",
-    "cart": "Корзина",
-    "shop": "Магазин",
-    "about": "О нас",
-    "contact": "Контакты",
-    "search": "Поиск"
+    "home": "Главная", "collections": "Коллекции", "catalog": "Каталог",
+    "israel": "О нашем Израиле", "loyalty": "Лояльность", "account": "Личный кабинет",
+    "cart": "Корзина", "shop": "Магазин", "about": "О нас", "contact": "Контакты", "search": "Поиск"
   },
   "home": {
-    "headline": "RIBA Lab",
-    "subline": "Авторское варенье ручной работы из Израиля",
-    "cta_shop": "В магазин",
-    "cta_about": "Наша история"
+    "headline": "RIBA Lab", "subline": "Авторское варенье ручной работы из Израиля",
+    "cta_shop": "В магазин", "cta_about": "Наша история"
   },
   "hero": {
     "kicker": "Сделано в Израиле · Ручная работа",
-    "title_1": "Искусство в каждой",
-    "title_2": "баночке",
+    "title_1": "Искусство в каждой", "title_2": "баночке",
     "subtitle": "RIBA LAB · ЛАБОРАТОРИЯ ВАРЕНЬЯ",
     "desc": "Варенье ограниченных коллекций ручной работы. Каждая партия — уникальный эксперимент вкуса, созданный с любовью из израильских ингредиентов.",
-    "cta_shop": "Исследовать коллекцию",
-    "cta_join": "Стать участником",
-    "pill_israel": "Сделано в Израиле",
-    "pill_local": "Местные ингредиенты",
-    "pill_limited": "Лимитированные партии",
-    "pill_handmade": "Ручная работа",
+    "cta_shop": "Исследовать коллекцию", "cta_join": "Стать участником",
+    "pill_israel": "Сделано в Израиле", "pill_local": "Местные ингредиенты",
+    "pill_limited": "Лимитированные партии", "pill_handmade": "Ручная работа",
     "jar_tag": "🇮🇱 RIBA LAB"
+  },
+  "sections": {
+    "collections_eye": "Коллекции",
+    "collections_title": "Выберите свой вкус",
+    "collections_desc": "Каждая коллекция — отдельная история, созданная в нашей лаборатории из лучших ингредиентов.",
+    "view": "Смотреть →",
+    "products_eye": "Хиты сезона",
+    "products_title": "Лимитированные партии",
+    "all_collections": "Все коллекции"
+  },
+  "products": {
+    "add": "В корзину", "wishlist": "В избранное",
+    "sold_out": "Распродано", "limited": "Лимит", "new": "Новинка",
+    "available": "Доступно", "of": "из"
   },
   "lang": {
     "select_title": "Выберите язык",
-    "he": "עברית",
-    "he_sub": "Израиль 🇮🇱",
-    "ru": "Русский",
-    "ru_sub": "Варенье ручной работы",
-    "en": "English",
-    "en_sub": "Artisan Jams",
-    "fr": "Français",
-    "fr_sub": "Confiture artisanale",
+    "he": "עברית", "he_sub": "Израиль 🇮🇱",
+    "ru": "Русский", "ru_sub": "Варенье ручной работы",
+    "en": "English", "en_sub": "Artisan Jams",
+    "fr": "Français", "fr_sub": "Confiture artisanale",
     "coming_soon": "Скоро"
   }
 }
