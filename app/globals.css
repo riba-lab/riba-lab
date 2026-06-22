@@ -83,22 +83,165 @@
 }
 
 /* ── Base resets ──────────────────────────────────────────────── */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
+  background: #FDF7F2;
+  color: #2D1B2E;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
 }
 
 body[dir="rtl"] {
   font-family: var(--font-hebrew), var(--font-sans);
 }
 
-::selection {
-  background: rgba(201, 48, 90, 0.18);
+::selection { background: rgba(201, 48, 90, 0.18); }
+
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: .5px; }
+
+/* subtle noise overlay on top of everything */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: .5;
+  mix-blend-mode: multiply;
+}
+
+/* ── Ambient background layers ──────────────────────────────── */
+
+/* Big holographic emoji fruit — behind everything */
+.holo-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(160deg, #FDF7F2, #F7EEE5);
+}
+.holo-fruit {
+  position: absolute;
+  font-size: 30vmin;
+  filter: saturate(1.5) drop-shadow(0 20px 60px rgba(201,48,90,.25));
+  opacity: .85;
+  mix-blend-mode: multiply;
+  transition: top .7s cubic-bezier(.34,1.56,.64,1), left .7s cubic-bezier(.34,1.56,.64,1), opacity .4s;
+  will-change: transform, opacity;
+  top: -8%;
+  left: 55%;
+}
+.holo-swap {
+  animation: holoSpin .7s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes holoSpin {
+  0%   { transform: scale(.6) rotate(-30deg); opacity: 0; filter: saturate(3) hue-rotate(40deg) blur(8px); }
+  100% { transform: scale(1)  rotate(0deg);  opacity: .9; filter: saturate(1.5) hue-rotate(0)   blur(0);  }
+}
+
+/* Iridescent shimmer */
+.holo-iri {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg,
+    rgba(255,0,128,.06),
+    rgba(0,200,255,.06) 25%,
+    rgba(180,255,0,.06) 50%,
+    rgba(255,100,0,.06) 75%,
+    rgba(160,0,255,.06)
+  );
+  background-size: 400% 400%;
+  animation: iriShift 5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+@keyframes iriShift {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* Scanlines */
+.holo-scan {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 3px,
+    rgba(255,255,255,.025) 3px,
+    rgba(255,255,255,.025) 4px
+  );
+}
+
+/* Grain texture */
+.holo-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Fruit swarm */
+.fruit-swarm {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.swarm-f {
+  position: absolute;
+  will-change: transform, opacity;
+  opacity: 0;
+  animation: swarmFloat linear infinite;
+}
+@keyframes swarmFloat {
+  0%   { transform: translateY(108vh) translateX(0)    rotate(0deg)   scale(.7); opacity: 0;   }
+  8%   { opacity: .55; }
+  50%  { transform: translateY(45vh)  translateX(40px) rotate(180deg) scale(1);  }
+  92%  { opacity: .55; }
+  100% { transform: translateY(-15vh) translateX(-30px) rotate(360deg) scale(.8); opacity: 0; }
+}
+
+/* Canvas particle layer */
+#partCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Mouse-following glow orb */
+.glow-orb {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: .45;
+  transition: background 1.4s ease, transform .5s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+/* ── Page content sits above all background layers ─────────── */
+main, section, header, nav, footer {
+  position: relative;
+  z-index: 3;
 }
