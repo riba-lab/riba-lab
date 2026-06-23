@@ -3,9 +3,14 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { ReactNode } from 'react';
+import { CartProvider } from '@/lib/cart-context';
 import AmbientBackground from '@/components/AmbientBackground';
 import Header from '@/components/Header';
 import LangModal from '@/components/LangModal';
+import AccountModal from '@/components/AccountModal';
+import ProductModal from '@/components/ProductModal';
+import CartDrawer from '@/components/CartDrawer';
+import ChatBot from '@/components/ChatBot';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,10 +33,16 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <AmbientBackground />
-      <Header />
-      <LangModal />
-      {children}
+      <CartProvider>
+        <AmbientBackground />
+        <Header />
+        <LangModal />
+        <AccountModal />
+        <ProductModal />
+        <CartDrawer />
+        {children}
+        <ChatBot />
+      </CartProvider>
     </NextIntlClientProvider>
   );
 }

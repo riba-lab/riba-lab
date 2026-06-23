@@ -31,7 +31,10 @@
   "products": {
     "add": "В корзину", "wishlist": "В избранное",
     "sold_out": "Распродано", "limited": "Лимит", "new": "Новинка",
-    "available": "Доступно", "of": "из"
+    "available": "Доступно", "of": "из",
+    "added": "✅ Добавлено!", "max_stock": "Лимит склада достигнут",
+    "flavor_profile": "⚗️ Профиль вкуса", "scan": "Сканировать",
+    "limited_edition": "Limited Edition"
   },
   "israel": {
     "tag": "PROUDLY ISRAELI",
@@ -62,5 +65,40 @@
     "en": "English", "en_sub": "Artisan Jams",
     "fr": "Français", "fr_sub": "Confiture artisanale",
     "coming_soon": "Скоро"
+  },
+  "cart": {
+    "title": "Корзина",
+    "empty": "Корзина пуста — добавьте что-нибудь!",
+    "delivery_title": "Доставка",
+    "pickup": "🏪 Самовывоз", "courier": "🚚 Курьер", "express": "⚡ Экспресс",
+    "total": "Итого",
+    "checkout": "🔒 Оформить заказ"
+  },
+  "account": {
+    "title": "Личный кабинет",
+    "tab_orders": "Мои заказы", "tab_level": "Мой уровень", "tab_cashback": "Кэшбэк",
+    "tab_wishlist": "Избранное", "tab_profile": "Профиль",
+    "order_1_items": "Черничная ночь × 2 · Манго-маракуйя Lab × 1",
+    "order_2_items": "Lab Edition «Розовый перец & Инжир» × 1",
+    "status_delivered": "Доставлен", "status_shipping": "В пути",
+    "your_level": "ВАШ УРОВЕНЬ",
+    "jars_bought": "Куплено баночек",
+    "next_level": "До след. уровня: ещё {count} банки",
+    "cashback_available": "Доступный кэшбэк ({pct}% от покупок)",
+    "cashback_history": "История начислений",
+    "order_label": "Заказ",
+    "wishlist_empty": "Список пуст. Нажмите ♡ на товаре!",
+    "first_name": "Имя", "last_name": "Фамилия", "phone": "Телефон",
+    "save": "Сохранить изменения"
+  },
+  "chat": {
+    "greeting": "Привет! 🍓 Помогу найти идеальное варенье или оформить доставку.",
+    "status_online": "Онлайн",
+    "quick_delivery": "🚚 Доставка", "quick_catalog": "🫙 Каталог", "quick_loyalty": "💎 Лояльность",
+    "reply_delivery": "🚚 Доставка по Израилю 1-3 дня. Самовывоз бесплатно. Курьер 29 ₪. Экспресс 59 ₪.",
+    "reply_catalog": "🫙 4 коллекции по месяцам: Июль, Август, Сентябрь и Октябрь. Прокрутите!",
+    "reply_loyalty": "💎 3% кэшбэк с первой покупки, до 15% для Профессора RIBA! Уровни по баночкам.",
+    "reply_generic": "Отличный вопрос! riba@lab.co.il 📧",
+    "placeholder": "Напишите вопрос..."
   }
 }

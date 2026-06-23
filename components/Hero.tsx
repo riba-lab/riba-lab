@@ -28,7 +28,7 @@ export default async function Hero() {
           <a href="#prd" className="btn-fill">
             <span>{t('cta_shop')}</span>
           </a>
-          <a href="#account" className="btn-ghost">
+          <a href="#account" data-open-account className="btn-ghost">
             {t('cta_join')}
           </a>
         </div>

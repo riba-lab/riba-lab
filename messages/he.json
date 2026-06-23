@@ -31,7 +31,10 @@
   "products": {
     "add": "לעגלה", "wishlist": "למועדפים",
     "sold_out": "אזל", "limited": "מוגבל", "new": "חדש",
-    "available": "במלאי", "of": "מתוך"
+    "available": "במלאי", "of": "מתוך",
+    "added": "✅ נוסף לעגלה!", "max_stock": "הגעת למלאי המקסימלי",
+    "flavor_profile": "⚗️ פרופיל טעם", "scan": "לסרוק",
+    "limited_edition": "מהדורה מוגבלת"
   },
   "israel": {
     "tag": "גאווה ישראלית",
@@ -62,5 +65,40 @@
     "en": "English", "en_sub": "Artisan Jams",
     "fr": "Français", "fr_sub": "Confiture artisanale",
     "coming_soon": "בקרוב"
+  },
+  "cart": {
+    "title": "עגלה",
+    "empty": "העגלה ריקה — הוסיפו משהו!",
+    "delivery_title": "משלוח",
+    "pickup": "🏪 איסוף עצמי", "courier": "🚚 שליח", "express": "⚡ אקספרס",
+    "total": "סה״כ",
+    "checkout": "🔒 לתשלום"
+  },
+  "account": {
+    "title": "חשבון אישי",
+    "tab_orders": "ההזמנות שלי", "tab_level": "הרמה שלי", "tab_cashback": "קאשבק",
+    "tab_wishlist": "מועדפים", "tab_profile": "פרופיל",
+    "order_1_items": "ליל אוכמניות × 2 · מנגו-פסיפלורה Lab × 1",
+    "order_2_items": "Lab Edition «פלפל ורוד ותאנה» × 1",
+    "status_delivered": "נמסר", "status_shipping": "בדרך",
+    "your_level": "הרמה שלך",
+    "jars_bought": "צנצנות שנקנו",
+    "next_level": "לרמה הבאה: עוד {count} צנצנות",
+    "cashback_available": "קאשבק זמין ({pct}% מהקנייה)",
+    "cashback_history": "היסטוריית זיכויים",
+    "order_label": "הזמנה",
+    "wishlist_empty": "הרשימה ריקה. לחצו ♡ על מוצר!",
+    "first_name": "שם פרטי", "last_name": "שם משפחה", "phone": "טלפון",
+    "save": "שמור שינויים"
+  },
+  "chat": {
+    "greeting": "שלום! 🍓 אעזור לכם למצוא את הריבה המושלמת או לסדר משלוח.",
+    "status_online": "מחובר",
+    "quick_delivery": "🚚 משלוח", "quick_catalog": "🫙 קטלוג", "quick_loyalty": "💎 נאמנות",
+    "reply_delivery": "🚚 משלוח בישראל 1-3 ימים. איסוף עצמי בחינם. שליח 29 ₪. אקספרס 59 ₪.",
+    "reply_catalog": "🫙 4 קולקציות חודשיות: יולי, אוגוסט, ספטמבר ואוקטובר. גללו!",
+    "reply_loyalty": "💎 3% קאשבק מהקנייה הראשונה, עד 15% לפרופסור RIBA! רמות לפי צנצנות.",
+    "reply_generic": "שאלה מצוינת! riba@lab.co.il 📧",
+    "placeholder": "כתבו שאלה..."
   }
 }

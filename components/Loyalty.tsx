@@ -79,7 +79,7 @@ export default async function Loyalty() {
                 </div>
               </div>
 
-              <button className="join-btn">
+              <button className="join-btn" data-open-account>
                 <span>{t('join_button')}</span>
               </button>
             </div>

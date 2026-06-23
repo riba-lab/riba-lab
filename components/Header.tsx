@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLocale } from 'next-intl'
 import Logo from './Logo'
+import { useCart } from '@/lib/cart-context'
 
 const DROPDOWN: Record<string, { icon: string; label: string; href: string }[]> = {
   he: [
@@ -40,6 +41,7 @@ const CART_LABEL:    Record<string, string> = { he: 'עגלה',       ru: 'Ко�
 
 export default function Header() {
   const locale = useLocale()
+  const { openCart, totalCount } = useCart()
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
 
@@ -92,11 +94,11 @@ export default function Header() {
             </a>
           ))}
           <div className="lm-divider" />
-          <a className="lm-item" href="#account" onClick={() => setOpen(false)}>
+          <a className="lm-item" href="#account" data-open-account onClick={() => setOpen(false)}>
             <span className="lm-item-ico">👤</span>
             <span>{ACCOUNT_LABEL[locale] ?? ACCOUNT_LABEL.ru}</span>
           </a>
-          <a className="lm-item" href="#cart" onClick={() => setOpen(false)}>
+          <a className="lm-item" href="#cart" onClick={() => { setOpen(false); openCart() }}>
             <span className="lm-item-ico">🛒</span>
             <span>{CART_LABEL[locale] ?? CART_LABEL.ru}</span>
           </a>
@@ -117,10 +119,10 @@ export default function Header() {
         <button className="lp" onClick={openLangModal}>
           {LANG_PILL[locale] ?? '🌐'}
         </button>
-        <button className="nav-ic" aria-label="Account">👤</button>
-        <button className="nav-ic" aria-label="Cart">
+        <button className="nav-ic" aria-label="Account" data-open-account>👤</button>
+        <button className="nav-ic" aria-label="Cart" onClick={openCart}>
           🛒
-          <span className="nbadge">0</span>
+          <span className="nbadge">{totalCount}</span>
         </button>
       </div>
     </nav>

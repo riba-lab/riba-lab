@@ -1,4 +1,7 @@
+'use client';
+
 import type { Product, Locale } from '@/lib/products';
+import { useCart } from '@/lib/cart-context';
 import FlavorIcon from './FlavorIcon';
 
 const CARD_BG = [
@@ -25,16 +28,21 @@ interface Props {
 }
 
 export default function ProductCard({ product, locale, index, labels }: Props) {
-  const { emoji, price, lim, isNew, stock, total, name, coll, desc, flavors } = product;
+  const { id, emoji, price, lim, isNew, stock, total, name, coll, desc, flavors } = product;
   const bg = CARD_BG[index % CARD_BG.length];
+  const { addToCart } = useCart();
 
   const soldOut = stock === 0;
   const lowStock = !soldOut && stock <= 8;
 
   const stockClass = soldOut ? 'stock-b stock-out' : lowStock ? 'stock-b stock-low' : 'stock-b';
 
+  const openModal = () => {
+    document.dispatchEvent(new CustomEvent('riba:openProductModal', { detail: { id } }));
+  };
+
   return (
-    <article className={`pc${soldOut ? ' pc-sold' : ''}`}>
+    <article className={`pc${soldOut ? ' pc-sold' : ''}`} onClick={openModal} style={{ cursor: 'pointer' }}>
       {/* Image area */}
       <div className="pc-img">
         <div className="pc-bg" style={{ background: bg }} />
@@ -84,11 +92,15 @@ export default function ProductCard({ product, locale, index, labels }: Props) {
           </div>
 
           <div className="pc-actions">
-            <button className="wb" aria-label="Wishlist">♡</button>
+            <button className="wb" aria-label="Wishlist" onClick={(e) => e.stopPropagation()}>♡</button>
             <button
               className={`ab${soldOut ? ' ab-out' : ''}`}
               disabled={soldOut}
               aria-label={soldOut ? labels.sold_out : labels.add}
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(id);
+              }}
             >
               +
             </button>
