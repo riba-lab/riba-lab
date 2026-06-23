@@ -100,5 +100,10 @@
     "reply_loyalty": "💎 3% קאשבק מהקנייה הראשונה, עד 15% לפרופסור RIBA! רמות לפי צנצנות.",
     "reply_generic": "שאלה מצוינת! riba@lab.co.il 📧",
     "placeholder": "כתבו שאלה..."
+  },
+  "footer": {
+    "tagline": "מעבדת ריבה אקסקלוסיבית · 🇮🇱 תל-אביב, ישראל",
+    "about": "עלינו", "delivery": "משלוח", "privacy": "פרטיות", "contact": "צור קשר",
+    "copyright": "© {year} RIBA Lab. כל הזכויות שמורות. 🔒 מאובטח SSL"
   }
 }
